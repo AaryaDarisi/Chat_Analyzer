@@ -20,6 +20,9 @@ if uploaded_files is not None:
     user_list.sort(key=sorting)
     user_list.insert(0, "Overall")
     name=st.sidebar.selectbox("Select the user",user_list)
+    name=name.capitalize()
+    for i in range(len(df["User"])):
+        df["User"].iloc[i]=df["User"].iloc[i].capitalize()
     if st.sidebar.button("Analyze"):
         c1,c2,c3,c4=st.columns(4)
         with c1:
